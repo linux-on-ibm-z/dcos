@@ -10,7 +10,7 @@ pushd "/pkg/src/openssl"
   shared \
   zlib \
   no-krb5 \
-  linux-x86_64 \
+  linux-generic64 \
   -Wa,--noexecstack \
   -O2 -DFORTIFY_SOURCE=2
 
