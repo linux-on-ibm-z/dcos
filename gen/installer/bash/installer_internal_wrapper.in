@@ -1,7 +1,12 @@
 #!/bin/sh
-set -euo pipefail
-
-source /opt/mesosphere/environment.export
+# Support for s390x.
+if [ "$(uname -m)" = "s390x" ] ; then
+  set -euo
+  . /opt/mesosphere/environment.export
+else
+  set -euo pipefail
+  source /opt/mesosphere/environment.export
+fi
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib
 
