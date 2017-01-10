@@ -17,5 +17,5 @@ cd $srcdir
 
 echo "...building rexray..."
 mkdir -p $PKG_PATH/bin/
-make build-linux-amd64 OFFLINE=1
-mv .build/bin/Linux-x86_64/rexray $PKG_PATH/bin/
+make build OFFLINE=1
+mv .build/bin/Linux-$(uname -p)/rexray $PKG_PATH/bin/
