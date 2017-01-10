@@ -2,9 +2,9 @@
   "docker": "golang:1.6",
   "single_source" : {
     "kind": "git",
-    "git": "https://github.com/dcos/dcos-oauth.git",
-    "ref": "2b7b0a5aa3810b4f517a5b18516a4bbd30e28fee",
-    "ref_origin": "master"
+    "git": "https://github.com/linux-on-ibm-z/dcos-oauth.git",
+    "ref": "8921980cc9b3e97b354b24e17a8321fa7116c84f",
+    "ref_origin": "1.8_s390x"
   },
   "username": "dcos_oauth",
   "state_directory": true
