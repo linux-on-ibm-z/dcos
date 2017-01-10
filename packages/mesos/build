@@ -27,13 +27,24 @@ popd
 
 # TODO(cmaloney): Make these a seperate mesos library package.
 # Copy the shared libraries from the system which mesos requires
-cp /usr/lib/x86_64-linux-gnu/libsasl2.so.2 "$libdir"
-cp -r /usr/lib/x86_64-linux-gnu/sasl2 "$libdir"
-cp /usr/lib/x86_64-linux-gnu/libsvn_delta-1.so.1 "$libdir"
-cp /usr/lib/x86_64-linux-gnu/libsvn_subr-1.so.1 "$libdir"
-cp /usr/lib/x86_64-linux-gnu/libapr-1.so.0 "$libdir"
-cp /usr/lib/x86_64-linux-gnu/libaprutil-1.so.0 "$libdir"
-cp /usr/lib/x86_64-linux-gnu/libdb-5.3.so "$libdir"
+# Support for s390x.
+if [ "$(uname -m)" = "s390x" ] ; then
+  cp /usr/lib/s390x-linux-gnu/libsasl2.so.2 "$libdir"
+  cp -r /usr/lib/s390x-linux-gnu/sasl2 "$libdir"
+  cp /usr/lib/s390x-linux-gnu/libsvn_delta-1.so.1 "$libdir"
+  cp /usr/lib/s390x-linux-gnu/libsvn_subr-1.so.1 "$libdir"
+  cp /usr/lib/s390x-linux-gnu/libapr-1.so.0 "$libdir"
+  cp /usr/lib/s390x-linux-gnu/libaprutil-1.so.0 "$libdir"
+  cp /usr/lib/s390x-linux-gnu/libdb-5.3.so "$libdir"
+else
+  cp /usr/lib/x86_64-linux-gnu/libsasl2.so.2 "$libdir"
+  cp -r /usr/lib/x86_64-linux-gnu/sasl2 "$libdir"
+  cp /usr/lib/x86_64-linux-gnu/libsvn_delta-1.so.1 "$libdir"
+  cp /usr/lib/x86_64-linux-gnu/libsvn_subr-1.so.1 "$libdir"
+  cp /usr/lib/x86_64-linux-gnu/libapr-1.so.0 "$libdir"
+  cp /usr/lib/x86_64-linux-gnu/libaprutil-1.so.0 "$libdir"
+  cp /usr/lib/x86_64-linux-gnu/libdb-5.3.so "$libdir"
+fi
 
 export PKG_PATH=$PKG_PATH
 systemd_master="$PKG_PATH"/dcos.target.wants_master/dcos-mesos-master.service
