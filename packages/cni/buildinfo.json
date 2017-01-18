@@ -3,7 +3,7 @@
     "single_source" : {
       "kind": "git",
       "git": "https://github.com/containernetworking/cni.git",
-      "ref" : "b8e92ed030588120f9fda47dd359e17a3234142d",
+      "ref" : "488db88fd185bfdd29c872cd4c38af651c713e45",
       "ref_origin": "master"
     }
 }
